@@ -1,7 +1,36 @@
 * {
   margin: 0;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+::-webkit-scrollbar {
+  display: none;
 }
 .App {
-  background-color: #111;
+  background-color: #181818;
   color: #fff;
 }
+.popup{
+  position: fixed;
+  top: 0;
+  left: 0;
+z-index: 10;
+  background-color: rgba(0, 0, 0, 0.3);
+  height: 100vh;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.popup-inner{
+  position: relative;
+  padding: 32px;
+  width: 25%;
+  border-radius: 10px;
+  background-color: white;
+  font-size: 0.6rem;
+  
+   
+  }

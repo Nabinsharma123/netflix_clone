@@ -2,7 +2,7 @@
     width: 100%;
     position: fixed;
     top: 0;
-    z-index: 1;
+    z-index: 6;
     padding: 20px;
     height: 25px;
     display: flex;
@@ -14,19 +14,39 @@
 .nav_logo{
     position: fixed;
     object-fit: contain;
-    width: 80px;
-    left: 20px;
+    width: 120px;
+    left: 50px;
 
+}
+.nav_logo_small{
+    position: fixed;
+    object-fit: contain;
+    width: 20px;
+    left: 50px;
+    top: 17px;
 }
 .nav_avatar{
     position: fixed;
 
     object-fit: contain;
     width: 30px;
-    right: 20px;
+    right: 50px;
 
 }
 .nav_black{
     background-color: #111;
 
+}
+@media(max-width:600px){
+
+   
+    .nav_logo_small{
+  
+        left: 30px;
+    }
+    .nav_avatar{
+   
+        right: 30px;
+    
+    }
 }
