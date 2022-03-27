@@ -98,7 +98,7 @@ font-size: 2rem;
 .banner_contents{
   margin-left: 0;
   padding-top: 0;
-
+  width: 350px;
   margin-bottom: 50px;
   display: flex;
   flex-direction: column;
