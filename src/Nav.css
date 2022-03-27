@@ -19,10 +19,11 @@
 
 }
 .nav_logo_small{
+    display: none;
     position: fixed;
     object-fit: contain;
     width: 20px;
-    left: 50px;
+    left: 30px;
     top: 17px;
 }
 .nav_avatar{
@@ -41,8 +42,10 @@
 
    
     .nav_logo_small{
-  
-        left: 30px;
+        display: block;
+    }
+    .nav_logo{
+        display: none;
     }
     .nav_avatar{
    

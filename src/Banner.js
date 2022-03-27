@@ -11,7 +11,7 @@ function Banner(props) {
       const request = await Axios.get(props.fetchUrl);
       setmovie(
         request.data.results[
-          Math.floor(Math.random() * request.data.results.length - 1)
+        Math.floor(Math.random() * request.data.results.length - 1)
         ]
       );
     }
@@ -30,8 +30,8 @@ function Banner(props) {
     <header
       className="banner"
       style={{
-        
-        backgroundImage: `url(https://image.tmdb.org/t/p/original${movie?.backdrop_path})`
+
+        backgroundImage: `url(https://image.tmdb.org/t/p/w200${movie?.backdrop_path})`
       }}
     >
 
@@ -41,8 +41,8 @@ function Banner(props) {
         </h1>
         <div className="banner_buttons">
           <button className="banner_button">
-          <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 448 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"></path></svg>
-          <span >Play</span></button>
+            <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 448 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"></path></svg>
+            <span >Play</span></button>
           <button className="banner_button">My List</button>
         </div>
         <h1
