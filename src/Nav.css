@@ -34,6 +34,18 @@
     right: 50px;
 
 }
+.nav_button{
+    position: fixed;
+    font-size: 1rem;
+    border-radius: 2px;
+    right: 50px;
+    border: none;
+    color: #eee;
+    background-color: #e50914;
+    font-weight: 700;
+    padding: 10px 20px;
+    cursor: pointer;
+}
 .nav_black{
     background-color: #111;
 
@@ -51,5 +63,9 @@
    
         right: 30px;
     
+    }
+    .nav_button{
+        right: 30px;
+
     }
 }

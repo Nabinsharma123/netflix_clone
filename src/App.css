@@ -2,6 +2,7 @@
   margin: 0;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  user-select: none;
 }
 ::-webkit-scrollbar {
   display: none;
