@@ -12,7 +12,7 @@ function register() {
                     <h1 className="dis_2"  >Ready to watch? Enter your email to create or restart your membership.</h1>
 
                     <form action="/Home" >
-                        <input className="input_register" id="Email" type="email" placeholder="   Email" required />
+                        <input className="input_register" id="Email" type="email" placeholder="Email" required />
 
                         <button type="submit" >Get Started</button>
 

@@ -1,6 +1,4 @@
-
-
-.popup_inner_register{
+.popup_inner_register {
     border-radius: 4px;
     position: relative;
     /* padding: 60px; */
@@ -10,44 +8,50 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    
 
-  
+
+
 }
-.dis_1{
+
+.dis_1 {
     font-size: 1.6rem;
     margin-bottom: 20px;
     text-align: center;
 }
-.dis_2{
+
+.dis_2 {
     font-size: 1.2rem;
     margin-bottom: 20px;
     width: 75%;
     text-align: center;
 }
- .sigh_in_register{
-     text-align: center;
+
+.sigh_in_register {
+    text-align: center;
     font-size: 1.8rem;
     display: flex;
-    justify-content:flex-start;
+    justify-content: flex-start;
     margin-bottom: 20px;
- }
+}
 
-.input_register{
-    
+.input_register {
+
     width: 100%;
     height: 60px;
     border: none;
     outline: none;
-   
+    padding: 0 20px;
+    border-radius: 2px;
+
 }
 
-.popup_inner_register form{
+.popup_inner_register form {
     width: 100%;
     display: flex;
     justify-content: space-between;
 }
-.popup_inner_register form button{
+
+.popup_inner_register form button {
     background-color: #e50914;
     border: none;
     width: 40%;
@@ -55,65 +59,72 @@
     color: #eee;
     border-radius: 2px;
 }
-.popup_inner_register form button:hover{
-    background-color:#b40009 ;
+
+.popup_inner_register form button:hover {
+    background-color: #b40009;
 }
 
 
-@media  (max-width:700px){
+@media (max-width:700px) {
 
-    .popup_inner_register form{
-     flex-direction: column;
-     align-items: center;
-        
-        
+    .popup_inner_register form {
+        flex-direction: column;
+        align-items: center;
+
+
     }
-     .input_register{
+
+    .input_register {
         width: 75%;
         height: 50px;
     }
-    .popup_inner_register form button{
+
+    .popup_inner_register form button {
         margin-top: 20px;
-        padding-top:10px ;
-        padding-bottom:10px ;
+        padding-top: 10px;
+        padding-bottom: 10px;
     }
-    .sigh_in_register{
+
+    .sigh_in_register {
         font-size: 1.5rem;
     }
-    .dis_1{
+
+    .dis_1 {
         font-size: 1.2rem;
         margin-bottom: 20px;
         text-align: center;
     }
-    .dis_2{
+
+    .dis_2 {
         font-size: 1rem;
         margin-bottom: 20px;
         width: 75%;
         text-align: center;
     }
+
     @media (max-width:499px) {
-        .sigh_in_register{
+        .sigh_in_register {
             font-size: 1.1rem;
         }
-        .dis_1{
+
+        .dis_1 {
             font-size: 1rem;
             margin-bottom: 20px;
             text-align: center;
         }
-        .dis_2{
+
+        .dis_2 {
             font-size: 0.8rem;
             margin-bottom: 20px;
             width: 75%;
             text-align: center;
         }
-        
-        .popup_inner_register form button{
-        /* padding:5px ; */
-        font-size: 1rem;
-        
+
+        .popup_inner_register form button {
+            /* padding:5px ; */
+            font-size: 1rem;
+
 
         }
     }
 }
-
-

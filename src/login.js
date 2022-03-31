@@ -12,9 +12,9 @@ function login() {
 
                     <form action="/Home" >
 
-                        <input className="input" id="Email" type="email" placeholder="   Email" required />
+                        <input className="input" id="Email" type="email" placeholder="Email" required />
 
-                        <input className="input" type="password" placeholder="   Password" required />
+                        <input className="input" type="password" placeholder="Password" required />
                         <button type="submit" >Sigh in</button>
 
                     </form>
