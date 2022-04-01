@@ -37,7 +37,14 @@
 
 }
 
+.banner_buttons {
+  width: 100%;
+  display: flex;
 
+  justify-content: flex-start;
+  align-items: center;
+
+}
 
 .banner_button {
   display: inline-flex;
@@ -142,5 +149,9 @@
     padding-left: 1rem;
     padding-right: 1rem;
 
+  }
+
+  .banner_buttons {
+    justify-content: center;
   }
 }
