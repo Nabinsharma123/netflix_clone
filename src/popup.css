@@ -117,7 +117,7 @@
     font-size: 1.1rem;
 }
 
-.popup_image_container .banner_buttons {
+.popup_image_container .banner_buttons_popup {
     position: absolute;
     bottom: 50px;
     margin-left: 30px;
@@ -173,7 +173,7 @@
         padding: 0.5rem 1rem;
     }
 
-    .popup_image_container .banner_buttons {
+    .popup_image_container .banner_buttons_popup {
         bottom: 30px;
     }
 
