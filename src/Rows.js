@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Axios from "./axios";
 import "./Row.css";
 import Popup from "./Popup";
+import { motion, AnimatePresence } from "framer-motion"
 
 
 
@@ -39,6 +40,7 @@ function Rows(props) {
 
 
   return (
+
     <div className="row">
       <h1>{props.title}</h1>
       <div className="poster_container" >
@@ -53,9 +55,9 @@ function Rows(props) {
               }
               return (
 
-                <div className="full_poster" >
+                <div className="full_poster" key={index} >
                   <img
-                    key={index}
+
                     onClick={clicked}
                     className={`row_poster ${props.isLargeRow && "row_poster_larger"}`}
                     src={baseUrl + (props.isLargeRow ? movie?.poster_path : movie?.backdrop_path)
@@ -78,9 +80,16 @@ function Rows(props) {
         </div>
       </div>
 
-      {isclick && <Popup unpop={() => { setisclick(false); }} movie={popup_movie} type={props.type} />}
 
-      {/* {trailerUrl && <Youtube videoId={trailerUrl} opts={opts} />} */}
+      <AnimatePresence>
+        {isclick &&
+          <motion.div  >
+            <Popup unpop={() => { setisclick(false); }} movie={popup_movie} type={props.type} />
+          </motion.div>
+        }
+
+      </AnimatePresence>
+
     </div>
   );
 }

@@ -21,13 +21,15 @@ function login() {
 
                     <div className="remember" >
                         <label> <input type="checkbox" ></input> Remember me </label>
-                        <a href="/" >Need help?</a>
+                        <h1 >Need help?</h1>
+                    </div>
+                    <div className="Sigh_Up_now" >
+                        <h1>New to Netflix? <a href="/" >Sigh Up now</a> </h1>
                     </div>
                 </div>
 
             </div>
 
-            {/* <img className="background_image" src="https://assets.nflxext.com/ffe/siteui/vlv3/87a1d9d8-a21d-4109-ba3a-c10d9055f5cf/2341e349-a6fc-4b04-a0ad-9b21defa1f88/IN-en-20220307-popsignuptwoweeks-perspective_alpha_website_small.jpg" /> */}
 
         </div>
     )

@@ -72,6 +72,7 @@
 }
 
 .remember {
+    margin-top: 20px;
     width: 100%;
     display: flex;
     align-items: flex-start;
@@ -82,9 +83,8 @@
     cursor: pointer;
 }
 
-.remember label,
-a {
-    margin-top: 20px;
+.remember label {
+
     cursor: pointer;
 
 }
@@ -93,4 +93,31 @@ a {
 
     text-decoration: none;
     color: #eee;
+}
+
+.remember h1 {
+    font-size: 1.1rem;
+    font-weight: 500;
+
+}
+
+.Sigh_Up_now {
+    width: 100%;
+    margin-top: 30px;
+}
+
+.Sigh_Up_now h1,
+a {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.Sigh_Up_now h1 {
+    color: #777;
+}
+
+.Sigh_Up_now h1 a {
+    text-decoration: none;
+    color: #eee;
+    font-weight: 500;
 }

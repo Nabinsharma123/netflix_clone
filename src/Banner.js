@@ -3,6 +3,9 @@ import Axios from "./axios";
 import "./banner.css";
 import Popup from "./Popup";
 import Youtube from "react-youtube";
+import Loading from "./Loading";
+import { motion, AnimatePresence } from "framer-motion"
+
 
 function Banner(props) {
 
@@ -11,7 +14,7 @@ function Banner(props) {
   const [isclick, setisclick] = useState(false);
   const [trailerUrl, setTrailerUrl] = useState("");
   const [error, seterror] = useState(false)
-
+  const [isloading, setisloading] = useState(false)
 
 
 
@@ -33,16 +36,20 @@ function Banner(props) {
 
 
   function playtrailer() {
+    setisloading(true)
     Axios.get("/tv/" + movie?.id + "/videos?api_key=87b2aeb41fbcac7a5bab9c09881c6834")
       .then((res) => {
-
         setTrailerUrl((res.data.results.filter(data => data.type === "Trailer"))[0].key);
       }).catch((err) => {
         if (err) {
           seterror(true);
+          setisloading(false)
+
         }
       });
   }
+
+
 
   const opts = {
     height: "450",
@@ -71,17 +78,29 @@ function Banner(props) {
         backgroundImage: `url(https://image.tmdb.org/t/p/original${movie?.backdrop_path})`
       }}
     >
+
       {error &&
-        <div className="no_video_found" >  <h1  >This Video is Unavailable Please Try Another One  </h1></div>
+        <div className="no_video_found" >  <h1  >This Video is Unavailable Please Try Another One  </h1>
+
+
+        </div>
       }
+
+
+
+
+      {isloading && <Loading />}
+
+
+
       {trailerUrl ?
         <div>
-          <Youtube className="banner_youtube" onEnd={() => { setTrailerUrl(""); }} videoId={trailerUrl} opts={opts} />
+          <Youtube className="banner_youtube" onReady={() => { setisloading(false); }} onEnd={() => { setTrailerUrl(""); }} videoId={trailerUrl} opts={opts} />
           <div className="banner_tariler_close_button" >
-            {trailerUrl && <button className="banner_button" onClick={() => {
+            <button className="banner_button" onClick={() => {
               setTrailerUrl("")
-
-            }} > Close The Trailer </button>}
+              setisloading(false)
+            }} > Close The Trailer </button>
 
           </div>
         </div>
@@ -107,13 +126,24 @@ function Banner(props) {
           >
             {truncate(movie.overview, 150)}
           </h1>
-          {isclick && <Popup unpop={() => { setisclick(false); }} movie={movie} type={"tv"} />}
+
+          <AnimatePresence>
+            {isclick &&
+              <motion.div  >
+                <Popup unpop={() => { setisclick(false); }} movie={movie} type={"tv"} />
+              </motion.div>
+            }
+
+          </AnimatePresence>
+
         </div>
 
 
 
       }
+
       {trailerUrl ? null : <div className="banner_fadebottom" />}
+
 
 
     </header>

@@ -3,12 +3,16 @@ import { motion } from "framer-motion"
 import Youtube from "react-youtube";
 import Axios from "./axios";
 import "./popup.css"
+import Loading from "./Loading";
+
 
 function Popup(props) {
     const baseUrl = "https://image.tmdb.org/t/p/original";
 
     const [trailerUrl, setTrailerUrl] = useState("");
-    const [error, seterror] = useState(false)
+    const [error, seterror] = useState(false);
+    const [isloading, setisloading] = useState(false)
+
 
 
 
@@ -28,7 +32,10 @@ function Popup(props) {
     useEffect(() => {
         document.body.style.overflow = 'hidden';
     }, [])
+
+
     function playtrailer() {
+        setisloading(true);
         Axios.get("/" + (props.movie?.media_type || props.type) + "/" + props.movie.id + "/videos?api_key=87b2aeb41fbcac7a5bab9c09881c6834")
             .then((res) => {
 
@@ -36,6 +43,7 @@ function Popup(props) {
             }).catch((err) => {
                 if (err) {
                     seterror(true)
+                    setisloading(false)
                 }
             });
     }
@@ -43,6 +51,7 @@ function Popup(props) {
         document.body.style.overflow = 'scroll';
 
         setTrailerUrl("");
+        setisloading(false)
         props.unpop();
 
 
@@ -52,22 +61,31 @@ function Popup(props) {
         <div  >
             <div className="popup" >
 
-                <motion.div className="popup-inner" key={0} initial={{ y: "100vh" }} animate={{ y: 0 }}  >
+                <motion.div className="popup-inner" key={0} initial={{ y: "100vh" }} animate={{ y: 0 }} exit={{ y: "100vh" }} transition={{ type: "tween", duration: 0.3, ease: "easeInOut", }} >
                     <div className="popup_image_container" >
                         {error &&
                             <div className="no_video_found" >  <h1  >This Video is Unavailable Please Try Another One</h1></div>
                         }
+                        {isloading && <Loading />}
+
                         {trailerUrl ?
 
+                            <div>
+                                <Youtube className="popup_youtube" onReady={() => { setisloading(false) }} onEnd={() => { setTrailerUrl(""); }} videoId={trailerUrl} opts={opts} />
 
-                            <Youtube className="popup_youtube" onEnd={() => { setTrailerUrl(""); }} videoId={trailerUrl} opts={opts} />
-
-
-
+                                <div className="popup_close_butoon_container" >
+                                    <button onClick={() => {
+                                        setisloading(false);
+                                        setTrailerUrl("");
+                                    }} className="banner_button" >Close The Trailer</button>
+                                </div>
+                            </div>
                             :
 
                             <div>
+
                                 <img className="popup_image" src={baseUrl + props.movie?.backdrop_path} alt={props.movie?.title || props.movie?.name || props.movie?.original_name} />
+
 
                                 <div className="banner_buttons">
                                     <button onClick={playtrailer} className="banner_button">
@@ -80,9 +98,7 @@ function Popup(props) {
                         }
                     </div>
                     <div className="popup_info_container" >
-                        {trailerUrl && <div className="popup_close_butoon_container" >
-                            <button onClick={() => { setTrailerUrl(""); }} className="banner_button" >Close The Trailer</button>
-                        </div>}
+
 
                         <h1>{props.movie?.title || props.movie?.name || props.movie?.original_name}</h1>
                         <p className="popup_discreption" >{props.movie?.overview}</p>
