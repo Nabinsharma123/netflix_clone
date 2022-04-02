@@ -7,19 +7,26 @@
   background-position: top;
   background-repeat: no-repeat;
   background-attachment: fixed;
+}
 
+.banner_contents_container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .banner_contents {
-  margin-left: 50px;
-  padding-top: 140px;
-  height: 190px;
 
-  width: 700px;
+  margin-left: 50px;
+  margin-top: 65px;
+
+  width: 100%;
 }
 
 .banner_title {
-  font-size: 4rem;
+  font-size: 4em;
   font-weight: 800;
   padding-bottom: 0.3rem;
   text-shadow: 2px 2px 4px rgba(20, 20, 20, .45)
@@ -123,12 +130,18 @@
 
   .banner_title {
     font-size: 2rem;
+    text-align: center;
+  }
+
+  .banner_contents_container {
+    justify-content: center;
+    align-items: flex-end;
   }
 
   .banner_contents {
     margin-left: 0;
     padding-top: 0;
-    width: 350px;
+
     margin-bottom: 50px;
     display: flex;
     flex-direction: column;

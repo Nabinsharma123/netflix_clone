@@ -107,38 +107,38 @@ function Banner(props) {
 
         :
 
+        <div className="banner_contents_container" >
+          <div className="banner_contents">
 
-        <div className="banner_contents">
 
+            <h1 className="banner_title">
+              {movie?.title || movie?.name || movie?.original_name}
+            </h1>
+            <div className="banner_buttons">
+              <button className="banner_button" onClick={playtrailer} >
+                <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 448 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"></path></svg>
+                <span >Play</span></button>
+              <button onClick={() => { setisclick(true); }} className="banner_button">More Info</button>
+            </div>
+            <h1
 
-          <h1 className="banner_title">
-            {movie?.title || movie?.name || movie?.original_name}
-          </h1>
-          <div className="banner_buttons">
-            <button className="banner_button" onClick={playtrailer} >
-              <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 448 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"></path></svg>
-              <span >Play</span></button>
-            <button onClick={() => { setisclick(true); }} className="banner_button">More Info</button>
+              className="banner_discreption"
+            >
+              {truncate(movie.overview, 150)}
+            </h1>
+
+            <AnimatePresence>
+              {isclick &&
+                <motion.div  >
+                  <Popup unpop={() => { setisclick(false); }} movie={movie} type={"tv"} />
+                </motion.div>
+              }
+
+            </AnimatePresence>
+
           </div>
-          <h1
-
-            className="banner_discreption"
-          >
-            {truncate(movie.overview, 150)}
-          </h1>
-
-          <AnimatePresence>
-            {isclick &&
-              <motion.div  >
-                <Popup unpop={() => { setisclick(false); }} movie={movie} type={"tv"} />
-              </motion.div>
-            }
-
-          </AnimatePresence>
 
         </div>
-
-
 
       }
 
