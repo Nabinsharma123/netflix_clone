@@ -4,9 +4,7 @@ import Rows from "./Rows";
 import requests from "./requests";
 import Banner from "./Banner";
 import Nav from "./Nav";
-import Login from "./login";
-import Register from "./register";
-import { Routes, Route } from "react-router-dom";
+
 function App() {
 
 
